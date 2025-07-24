@@ -96,8 +96,29 @@ public class ejemploClase {
         }
     }
 
+    public static int encontrarMenor(int[] num) {
+        int menor = num[0];
+        for (int i = 1; i < num.length; i++) {
+            if (num[i] < menor) {
+                menor = num[i];
+            }
+        }
+        return menor;
+    }
+
+    public static int sumaNumeros(int[] num) {
+        int suma = num[0];
+
+        for (int i = 1; i < num.length; i++) {
+            suma += num[i];
+        }
+
+        return suma;
+    }
+
     public static void main(String[] args) {
 
+        //semana, numeros, año
         if (args.length > 0) {
             int num = Integer.parseInt(args[0]);
 
@@ -108,6 +129,7 @@ public class ejemploClase {
             System.out.println("Solo se permite numeros");
         }
 
+        //ternario
         if (args.length > 2) {
             int num1 = Integer.parseInt(args[1]);
             int num2 = Integer.parseInt(args[2]);
@@ -117,7 +139,7 @@ public class ejemploClase {
             System.out.println("Solo se permite numeros");
         }
 
-
+        //triangulo
         if (args.length > 3) {
             int lengt1 = Integer.parseInt(args[0]);
             int lengt2 = Integer.parseInt(args[1]);
@@ -125,5 +147,51 @@ public class ejemploClase {
 
             triangulo(lengt1, lengt2, lengt3);
         }
+
+        //for anidados encontrar el menor
+        if (args.length != 10) {
+            System.out.println("Por favor ingresa exactamente 10 números enteros como argumentos.");
+            return;
+        }
+
+        int[] numeros = new int[args.length];
+        int count = 0;
+
+        while(count < args.length){
+
+            try {
+                numeros[count] = Integer.parseInt(args[count]);
+            } catch (NumberFormatException e) {
+                System.out.println("El argumento '" + args[count] + "' no es un número entero válido.");
+                return;
+            }
+            count++;
+        }
+
+        int menor = encontrarMenor(numeros);
+        System.out.println("El numero menor entre todos es: " + menor);
+
+        //Suma de numero
+        if (args.length != 10) {
+            System.out.println("Por favor ingresa exactamente 10 números enteros como argumentos.");
+            return;
+        }
+
+        int[] numerosSuma = new int[args.length];
+        int count1 = 0;
+
+        while(count1 < args.length){
+
+            try {
+                numeros[count1] = Integer.parseInt(args[count1]);
+            } catch (NumberFormatException e) {
+                System.out.println("El argumento '" + args[count1] + "' no es un número entero válido.");
+                return;
+            }
+            count1++;
+        }
+
+        int suma = sumaNumeros(numerosSuma);
+        System.out.println("La suma de los numeros es: " + suma);
     }
 }

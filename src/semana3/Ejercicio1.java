@@ -5,27 +5,17 @@ public class Ejercicio1 {
 
         switch (pais) {
             case "brasil":
-                float porcetajeBrasil = 16f / 100;
-                return porcetajeBrasil * ingresos;
-
+                return ingresos * 0.16f;
             case "usa":
-                float porcetajeUsa = 12f / 100;
-                return porcetajeUsa * ingresos;
-
+                return ingresos * 0.12f;
             case "india":
-                float porcentajeIndia = 10f / 100;
-                return porcentajeIndia * ingresos;
-
+                return ingresos * 0.10f;
             case "mexico":
-                float porcentajeMexico = 14f / 100;
-                return porcentajeMexico * ingresos;
-
+                return ingresos * 0.14f;
             case "españa":
-                float porcentajeEspana = 50f / 100;
-                return porcentajeEspana * ingresos;
-
+                return ingresos * 0.50f;
             default:
-                System.out.print("País no válido. Solo se permiten: Brasil, USA, India, Mexico, España.");
+                System.out.println("País no válido. Solo se permiten: Brasil, USA, India, Mexico, España.");
                 return 0f;
         }
     }
@@ -36,11 +26,17 @@ public class Ejercicio1 {
 
             try {
                 int ingresosNetos = Integer.parseInt(args[1]);
+
+                if (ingresosNetos < 0 ) {
+                    System.out.println("Los ingresos no pueden ser negativos.");
+                    return;
+                }
+
                 float subTotal = calculadora(nombrePais, ingresosNetos);
 
                 float total = ingresosNetos - subTotal;
 
-                System.out.println("El impuesto que se debe pagar por residir en " + nombrePais + " es " + subTotal);
+                System.out.println("El impuesto que se debe pagar por residir en '" + nombrePais + "' es " + subTotal);
                 System.out.println("El monto restante después de pagar impuestos es: " + total);
             } catch (NumberFormatException e) {
                 System.out.println("El segundo argumento debe ser un número entero.");
