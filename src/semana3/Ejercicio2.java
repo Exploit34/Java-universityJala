@@ -30,8 +30,38 @@ public class Ejercicio2 {
         System.out.println("El número " + numUser + " tiene " + count + " dígitos.");
     }
 
+    public static void caraCruz(String elejir) {
+        int cara = 0;
+        int cruz = 0;
+
+        elejir = elejir.toLowerCase();
+
+        System.out.println("¡Comienza el juego!");
+
+        do {
+            long tiempo = System.currentTimeMillis();
+            int lanzamiento = (int)(tiempo % 2);
+
+            if (lanzamiento == 1) {
+                cara++;
+                System.out.println("Salió CARA (1). Total CARAS: " + cara);
+            } else {
+                cruz++;
+                System.out.println("Salió CRUZ (0). Total CRUCES: " + cruz);
+            }
+
+        } while (cara < 5 && cruz < 5);
+
+        if ((cara == 5 && elejir.equals("cara")) || (cruz == 5 && elejir.equals("cruz"))) {
+            System.out.println("¡Felicidades! Ganaste, tu lado (" + elejir + ") salió 5 veces primero.");
+        } else {
+            System.out.println("Lo siento, perdiste. El otro lado salió 5 veces primero.");
+        }
+    }
+
     public static void main(String[] args) {
 
+        //FOR
         /*
         if (args.length != 3) {
             System.out.println("Solo 3 argumetos PAR o IMPAR y numeros ejemplos 2 y 12");
@@ -56,8 +86,16 @@ public class Ejercicio2 {
         }
         */
 
-        //While
+        //WHILE
+        /*
         int num = Integer.parseInt(args[0]);
         numeros(num);
+        */
+
+        //DO WHILE
+        String user = args[0];
+
+        caraCruz(user);
+
     }
 }
