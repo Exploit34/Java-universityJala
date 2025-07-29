@@ -39,8 +39,7 @@ public class Ejercicio2 {
         System.out.println("¡Comienza el juego!");
 
         do {
-            long tiempo = System.currentTimeMillis();
-            int lanzamiento = (int)(tiempo % 2);
+            int lanzamiento = (int)(Math.random() * 2);
 
             if (lanzamiento == 1) {
                 cara++;
@@ -94,8 +93,6 @@ public class Ejercicio2 {
 
         //DO WHILE
         String user = args[0];
-
         caraCruz(user);
-
     }
 }
