@@ -1,3 +1,5 @@
+package ejemplosClase;
+
 public class ejemploClase {
     public static void semana(int dia) {
         if (dia == 1) {

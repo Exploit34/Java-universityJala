@@ -1,3 +1,5 @@
+package ejemplosClase;
+
 public class array {
 
     public static void guardarNumeros(int[] num, int cantidad) {

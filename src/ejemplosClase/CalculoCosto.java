@@ -1,3 +1,5 @@
+package ejemplosClase;
+
 public class CalculoCosto {
     public static void mensualidad(String nombre, String carrera) {
         switch (carrera) {
